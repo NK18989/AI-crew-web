@@ -1,0 +1,102 @@
+<!-- Material Toolbar -->
+<mat-toolbar color="primary">
+  <mat-icon>code</mat-icon>
+  <span>{{ title() }} - Angular Material Showcase</span>
+  <span class="spacer"></span>
+  <button mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+
+<!-- Main Content -->
+<div class="container">
+  <!-- Welcome Card -->
+  <mat-card class="welcome-card">
+    <mat-card-header>
+      <mat-card-title>Welcome to Angular Material!</mat-card-title>
+      <mat-card-subtitle>Your project is successfully configured with Material Design</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>This is a demonstration of various Angular Material components working together.</p>
+      <p>The Azure/Blue theme has been applied automatically during the setup process.</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary">Learn More</button>
+      <button mat-raised-button color="accent">Get Started</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <!-- Material Tabs -->
+  <mat-tab-group class="demo-tabs">
+    <mat-tab label="Form Controls">
+      <div class="tab-content">
+        <h3>Form Elements</h3>
+        
+        <!-- Text Input -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Enter your text</mat-label>
+          <input matInput placeholder="Type something..." [(ngModel)]="inputValue">
+          <mat-icon matSuffix>search</mat-icon>
+          <mat-hint>This is a Material Design input field</mat-hint>
+        </mat-form-field>
+
+        <!-- Checkbox -->
+        <div class="form-row">
+          <mat-checkbox [(ngModel)]="checked">
+            Enable notifications
+          </mat-checkbox>
+        </div>
+
+        <!-- Slider -->
+        <div class="form-row">
+          <label>Slider Value: {{ sliderValue() }}</label>
+          <mat-slider min="0" max="100" step="1" class="full-width">
+            <input matSliderThumb [(ngModel)]="sliderValue">
+          </mat-slider>
+        </div>
+      </div>
+    </mat-tab>
+    
+    <mat-tab label="Buttons">
+      <div class="tab-content">
+        <h3>Button Variations</h3>
+        <div class="button-grid">
+          <button mat-button>Basic Button</button>
+          <button mat-raised-button>Raised Button</button>
+          <button mat-raised-button color="primary">Primary</button>
+          <button mat-raised-button color="accent">Accent</button>
+          <button mat-raised-button color="warn">Warn</button>
+          <button mat-stroked-button>Stroked Button</button>
+          <button mat-flat-button color="primary">Flat Button</button>
+          <button mat-icon-button>
+            <mat-icon>favorite</mat-icon>
+          </button>
+          <button mat-fab color="primary">
+            <mat-icon>add</mat-icon>
+          </button>
+          <button mat-mini-fab color="accent">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-tab>
+    
+    <mat-tab label="Information">
+      <div class="tab-content">
+        <h3>Project Information</h3>
+        <mat-card>
+          <mat-card-content>
+            <p><strong>Angular:</strong> v20.1.0</p>
+            <p><strong>Angular Material:</strong> v20.1.3</p>
+            <p><strong>Theme:</strong> Azure/Blue</p>
+            <p><strong>Input Value:</strong> {{ inputValue() || 'Nothing entered yet' }}</p>
+            <p><strong>Checkbox:</strong> {{ checked() ? 'Checked' : 'Unchecked' }}</p>
+            <p><strong>Slider:</strong> {{ sliderValue() }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+
+<router-outlet />
